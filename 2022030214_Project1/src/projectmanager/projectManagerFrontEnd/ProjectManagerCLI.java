@@ -8,7 +8,7 @@ package projectmanager.projectManagerFrontEnd;
 import java.text.ParseException;
 import projectmanager.projectManagerAdmin.IMS;
 import utils.Globals;
-import utils.Globals.programmingLanguages;
+import utils.Globals.*;
 
 /**
  *
@@ -40,58 +40,63 @@ public class ProjectManagerCLI {
                 "2821037266");
         // if we try to display all employees again there should be no duplicate ID
         System.out.println(IS.displayEmployees());
+
+        System.out.println(Globals.separator);
+        System.out.println(Globals.separator);
+        // update info of employees that had empty office number and phone
+        IS.updateEmployee("323", null, "141.B65.1", "2821037696");// carefull!
+        // leaving the name null means it won't be
+        // updated, not set to null!
+        IS.updateEmployee("325", null, "141.B65.3", "2821037888");// carefull!
+        // leaving the name null means it won't be
+        // updated, not set to null!
+        // check that employees were successfully updated
+        System.out.println(IS.displayEmployees());
+
+        System.out.println(Globals.separator);
+        System.out.println(Globals.separator);
+        System.out.println(IS.displayEmployees());
+        // assign positions to employees. Initially we will set 3/4 to being
+        // developers
+
+        IS.assignDevPosition("323", new programmingLanguages[] {
+                programmingLanguages.PYTHON,
+                programmingLanguages.JAVA, programmingLanguages.C });
+        IS.assignDevPosition("324", new programmingLanguages[] {
+                programmingLanguages.JAVA,
+                programmingLanguages.PYTHON, programmingLanguages.SCALA });
+        IS.assignDevPosition("325", new programmingLanguages[] {
+                programmingLanguages.JAVA,
+                programmingLanguages.C, programmingLanguages.CPP });
+        // check employees were successfully updated
+        // can you tell which "toString()" method was called? the one in the Employee
+        // or
+        // the Developer class?
+        System.out.println(IS.displayEmployees());
+
+        System.out.println(Globals.separator);
+        System.out.println(Globals.separator);
+
+        // then one of the employees becomes a manager
+        IS.assignManagerPosition("326");
+        // check employees were successfully updated
+        System.out.println(IS.displayEmployees());
+
+        System.out.println(Globals.separator);
+        System.out.println(Globals.separator);
+        // insert some projects
+        IS.insertProject(Globals.pad("EVENFLOW", Globals.projectPaddingRight, ' '),
+                500000.054);
+        IS.insertProject(Globals.pad("INFORE2", Globals.projectPaddingRight, ' '),
+                1800000.58);
+        IS.insertProject(Globals.pad("AcronAI", Globals.projectPaddingRight, ' '),
+                800000.00);
+        System.out.println(IS.displayProjects());
+
+        System.out.println(Globals.separator);
+        System.out.println(Globals.separator);
+
         /*
-         * System.out.println(Globals.separator);
-         * System.out.println(Globals.separator);
-         * // update info of employees that had empty office number and phone
-         * IS.updateEmployee("323", null, "141.B65.1", "2821037696");// carefull!
-         * leaving the name null means it won't be
-         * // updated, not set to null!
-         * IS.updateEmployee("325", null, "141.B65.3", "2821037888");// carefull!
-         * leaving the name null means it won't be
-         * // updated, not set to null!
-         * // check that employees were successfully updated
-         * System.out.println(IS.displayEmployees());
-         * 
-         * System.out.println(Globals.separator);
-         * System.out.println(Globals.separator);
-         * // assign positions to employees. Initially we will set 3/4 to being
-         * developers
-         * IS.assignDevPosition("323", new programmingLanguages[] {
-         * programmingLanguages.PYTHON,
-         * programmingLanguages.JAVA, programmingLanguages.C });
-         * IS.assignDevPosition("324", new programmingLanguages[] {
-         * programmingLanguages.JAVA,
-         * programmingLanguages.PYTHON, programmingLanguages.SCALA });
-         * IS.assignDevPosition("325", new programmingLanguages[] {
-         * programmingLanguages.JAVA,
-         * programmingLanguages.C, programmingLanguages.CPP });
-         * // check employees were successfully updated
-         * // can you tell which "toString()" method was called? the one in the Employee
-         * or
-         * // the Developer class?
-         * System.out.println(IS.displayEmployees());
-         * 
-         * System.out.println(Globals.separator);
-         * System.out.println(Globals.separator);
-         * // then one of the employees becomes a manager
-         * IS.assignManagerPosition("326");
-         * // check employees were successfully updated
-         * System.out.println(IS.displayEmployees());
-         * 
-         * System.out.println(Globals.separator);
-         * System.out.println(Globals.separator);
-         * // insert some projects
-         * IS.insertProject(Globals.pad("EVENFLOW", Globals.projectPaddingRight, ' '),
-         * 500000.054);
-         * IS.insertProject(Globals.pad("INFORE2", Globals.projectPaddingRight, ' '),
-         * 1800000.58);
-         * IS.insertProject(Globals.pad("AcronAI", Globals.projectPaddingRight, ' '),
-         * 800000.00);
-         * System.out.println(IS.displayProjects());
-         * 
-         * System.out.println(Globals.separator);
-         * System.out.println(Globals.separator);
          * IS.updateProject(0, null, 490000); // carefull leaving the title null means
          * it won't be updated, not set to
          * // null!

@@ -29,7 +29,7 @@ public class Employee {
     @Override
     public String toString() {
         return this.empID + "\t" + this.empName + "\t" + this.empOfficeNo + "\t" + this.empOfficePhone + "\t"
-                + this.HireDate + "\t" + this.workingOn + "\t" + this.numOfProjects;
+                + this.HireDate + "\t" + this.workingOn + "\t" + this.numOfProjects + "\n";
     }
 
     // assignProject
@@ -78,27 +78,27 @@ public class Employee {
         this.empID = empID;
     }
 
-    private String getEmpName() {
+    public String getEmpName() {
         return empName;
     }
 
-    private void setEmpName(String empName) {
+    public void setEmpName(String empName) {
         this.empName = empName;
     }
 
-    private String getEmpOfficeNo() {
+    public String getEmpOfficeNo() {
         return empOfficeNo;
     }
 
-    private void setEmpOfficeNo(String empOfficeNo) {
+    public void setEmpOfficeNo(String empOfficeNo) {
         this.empOfficeNo = empOfficeNo;
     }
 
-    private String getEmpOfficePhone() {
+    public String getEmpOfficePhone() {
         return empOfficePhone;
     }
 
-    private void setEmpOfficePhone(String empOfficePhone) {
+    public void setEmpOfficePhone(String empOfficePhone) {
         this.empOfficePhone = empOfficePhone;
     }
 

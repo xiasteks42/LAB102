@@ -22,7 +22,8 @@ public class Project {
     @Override
     public String toString() {
         return this.numOfProjects + "\t" + this.projectID + "\t" + this.projectName + "\t" + this.projectBudget + "\t"
-                + this.projectDuration + "\t" + this.projectStatus + "\t" + this.numOfTasks + "\t" + this.projectTasks;
+                + this.projectDuration + "\t" + this.projectStatus + "\t" + this.numOfTasks + "\t" + this.projectTasks
+                + "\n";
     }
 
     int findTaskByID(String tID) {
@@ -35,11 +36,6 @@ public class Project {
         }
         return indx;
     }
-
-    // instertTask
-void insertTask(String taskTitle, Date fromDate, Date toDate, status taskStatus){
-       this.projectTasks.
-        }
 
     // deleteTask
     void deleteTask(int taskIdx) {
@@ -99,7 +95,7 @@ void insertTask(String taskTitle, Date fromDate, Date toDate, status taskStatus)
         this.numOfProjects = numOfProjects;
     }
 
-    private int getProjectID() {
+    public int getProjectID() {
         return projectID;
     }
 
@@ -107,11 +103,11 @@ void insertTask(String taskTitle, Date fromDate, Date toDate, status taskStatus)
         this.projectID = projectID;
     }
 
-    private String getProjectName() {
+    public String getProjectName() {
         return projectName;
     }
 
-    private void setProjectName(String projectName) {
+    public void setProjectName(String projectName) {
         this.projectName = projectName;
     }
 
@@ -119,7 +115,7 @@ void insertTask(String taskTitle, Date fromDate, Date toDate, status taskStatus)
         return projectBudget;
     }
 
-    private void setProjectBudget(double projectBudget) {
+    public void setProjectBudget(double projectBudget) {
         this.projectBudget = projectBudget;
     }
 
